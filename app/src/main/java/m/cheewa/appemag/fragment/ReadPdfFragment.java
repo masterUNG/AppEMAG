@@ -99,7 +99,15 @@ public class ReadPdfFragment extends Fragment{
         subjectString = myConstant.getUnitStrings();
         ((MainActivity) getActivity()).getSupportActionBar().setTitle(subjectString[anInt]);
 
-        setHasOptionsMenu(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
 
     }
 
